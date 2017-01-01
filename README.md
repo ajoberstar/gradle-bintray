@@ -47,8 +47,6 @@ apply plugin: 'org.ajoberstar.bintray'
 
 ### Configuration
 
-**NOTE:** In general, there are no default values here. The main exception is that the `repoUri` will be automatically set if you use the `org.ajoberstar.grgit` plugin to your project's origin repo URI.
-
 ```groovy
 model {
     bintray {
