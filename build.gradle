@@ -52,13 +52,6 @@ task javadocJar(type: Jar) {
 }
 
 publishing {
-    publications {
-        main(MavenPublication) {
-            from components.java
-            artifact sourcesJar
-            artifact javadocJar
-        }
-    }
     repositories {
         mavenLocal()
         maven {
