@@ -7,11 +7,11 @@ public interface Bintray {
     String getOwner();
     void setOwner(String owner);
 
-    String getRepository();
-    void setRepository(String repository);
+    String getRepo();
+    void setRepo(String repo);
 
-    String getPackage();
-    void setPackage(String pkg);
+    String getPkg();
+    void setPkg(String pkg);
 
     boolean getPublish();
     void setPublish(boolean publish);

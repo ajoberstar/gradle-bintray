@@ -24,13 +24,13 @@ class BintrayRules extends RuleSource {
     @Validate
     public void bintrayValidate(Bintray bintray) {
         Objects.requireNonNull(bintray.getOwner(), "bintray.owner must be populated");
-        Objects.requireNonNull(bintray.getRepository(), "bintray.repository must be populated");
-        Objects.requireNonNull(bintray.getOwner(), "bintray.package must be populated");
+        Objects.requireNonNull(bintray.getRepo(), "bintray.repo must be populated");
+        Objects.requireNonNull(bintray.getPkg(), "bintray.pkg must be populated");
     }
 
     @Mutate
     public void addBintrayRepository(PublishingExtension publishing, Bintray bintray) {
-        String url = String.format("https://api.bintray.com/maven/%s/%s/%s/;publish=%s", bintray.getOwner(), bintray.getRepository(), bintray.getPackage(), bintray.getPublish() ? "1" : "0");
+        String url = String.format("https://api.bintray.com/maven/%s/%s/%s/;publish=%s", bintray.getOwner(), bintray.getRepo(), bintray.getPkg(), bintray.getPublish() ? "1" : "0");
         publishing.repositories(repositories -> {
             repositories.maven(repo -> {
                 repo.setName("bintray");

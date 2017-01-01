@@ -53,8 +53,8 @@ apply plugin: 'org.ajoberstar.bintray'
 model {
     bintray {
         owner = 'my-user' // your bintray user or org
-        repository = 'my-repo' // your bintray repo
-        package = 'my-pkg' // your bintrary package
+        repo = 'my-repo' // your bintray repo
+        pkg = 'my-pkg' // your bintrary package
         publish = false // publish the files after upload to Bintray, defaults true
     }
 }
