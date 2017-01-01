@@ -13,6 +13,7 @@ plugins {
     id 'maven-publish'
     id 'org.sonarqube' version '2.2.1'
     id 'com.gradle.plugin-publish' version '0.9.7'
+    id 'org.ajoberstar.bintray' version '0.1.0-rc.2'
 }
 
 apply plugin: 'org.ajoberstar.semver-vcs-grgit'
@@ -23,6 +24,14 @@ group = 'org.ajoberstar'
 sonarqube {
     properties {
         property 'sonar.projectVersion', version.toString().split('-')[0]
+    }
+}
+
+model {
+    bintray {
+        owner = 'ajoberstar'
+        repo = 'maven'
+        pkg = 'gradle-bintray'
     }
 }
 
@@ -54,14 +63,6 @@ task javadocJar(type: Jar) {
 publishing {
     repositories {
         mavenLocal()
-        maven {
-            name = 'bintray'
-            url = 'https://api.bintray.com/maven/ajoberstar/maven/gradle-bintray/;publish=1'
-            credentials {
-                username = System.env['BINTRAY_USER']
-                password = System.env['BINTRAY_KEY']
-            }
-        }
     }
 }
 
