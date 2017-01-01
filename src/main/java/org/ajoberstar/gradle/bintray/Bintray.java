@@ -11,7 +11,7 @@ public interface Bintray {
     void setRepository(String repository);
 
     String getPackage();
-    void setPackage(String package);
+    void setPackage(String pkg);
 
     boolean getPublish();
     void setPublish(boolean publish);
