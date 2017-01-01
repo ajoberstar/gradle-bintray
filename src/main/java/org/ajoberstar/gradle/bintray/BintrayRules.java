@@ -12,7 +12,9 @@ import org.gradle.api.publish.PublishingExtension;
 
 class BintrayRules extends RuleSource {
     @Model
-    public void bintray(Bintray bintray) {}
+    public void bintray(Bintray bintray) {
+        // just create the model element
+    }
 
     @Defaults
     public void bintrayDefaults(Bintray bintray) {
