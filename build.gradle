@@ -1,46 +1,13 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'org.ajoberstar:semver-vcs-gradle-grgit:0.1.0'
-    }
-}
-
 plugins {
+    id 'org.ajoberstar.defaults' version '0.7.1'
     id 'groovy'
     id 'java-gradle-plugin'
-    id 'maven-publish'
-    id 'org.sonarqube' version '2.2.1'
-    id 'org.ajoberstar.bintray' version '0.1.0-rc.2'
-    id 'com.gradle.plugin-publish' version '0.9.7'
 }
-
-apply plugin: 'org.ajoberstar.semver-vcs-grgit'
-apply from: 'gradle/compatTest.gradle'
 
 group = 'org.ajoberstar'
 
-sonarqube {
-    properties {
-        property 'sonar.projectVersion', version.toString().split('-')[0]
-    }
-}
-
-model {
-    bintray {
-        owner = 'ajoberstar'
-        repo = 'maven'
-        pkg = 'gradle-bintray'
-    }
-}
-
 repositories {
     jcenter()
-}
-
-configurations.all {
-    exclude group: 'org.codehaus.groovy'
 }
 
 dependencies {
@@ -50,28 +17,16 @@ dependencies {
     compatTestCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
 }
 
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
+stutter {
+    supports '3.0', '3.1', '3.2', '3.2.1'
 }
 
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from tasks.javadoc.outputs.files
-}
-
-publishing {
-    publications {
-        main(MavenPublication) {
-            from components.java
-            artifact sourcesJar
-            artifact javadocJar
-        }
+model {
+    bintray {
+        owner = 'ajoberstar'
+        repo = 'maven'
+        pkg = 'gradle-bintray'
     }
-}
-
-gradlePlugin {
-    automatedPublishing = false
 }
 
 pluginBundle {
