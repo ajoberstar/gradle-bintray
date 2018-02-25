@@ -1,8 +1,7 @@
 # gradle-bintray
 
-[![Bintray](https://api.bintray.com/packages/ajoberstar/maven/gradle-bintray/images/download.svg)](https://bintray.com/ajoberstar/maven/gradle-bintray/_latestVersion)
+[![Download](https://api.bintray.com/packages/ajoberstar/maven/gradle-bintray/images/download.svg)](https://bintray.com/ajoberstar/maven/gradle-bintray/_latestVersion)
 [![Travis](https://img.shields.io/travis/ajoberstar/gradle-bintray.svg?style=flat-square)](https://travis-ci.org/ajoberstar/gradle-bintray)
-[![Quality Gate](https://sonarqube.ajoberstar.com/api/badges/gate?key=org.ajoberstar:gradle-bintray)](https://sonarqube.ajoberstar.com/dashboard/index/org.ajoberstar:gradle-bintray)
 [![GitHub license](https://img.shields.io/github/license/ajoberstar/gradle-bintray.svg?style=flat-square)](https://github.com/ajoberstar/gradle-bintray/blob/master/LICENSE)
 
 ## Why do you care?
