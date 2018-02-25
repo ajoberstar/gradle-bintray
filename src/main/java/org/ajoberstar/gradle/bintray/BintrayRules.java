@@ -15,15 +15,13 @@
  */
 package org.ajoberstar.gradle.bintray;
 
-import org.gradle.model.RuleSource;
+import java.util.Objects;
+import org.gradle.api.publish.PublishingExtension;
 import org.gradle.model.Defaults;
 import org.gradle.model.Model;
 import org.gradle.model.Mutate;
+import org.gradle.model.RuleSource;
 import org.gradle.model.Validate;
-
-import java.util.Objects;
-
-import org.gradle.api.publish.PublishingExtension;
 
 class BintrayRules extends RuleSource {
   @Model

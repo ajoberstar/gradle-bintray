@@ -15,8 +15,8 @@
  */
 package org.ajoberstar.gradle.bintray;
 
-import org.gradle.api.Project;
 import org.gradle.api.Plugin;
+import org.gradle.api.Project;
 
 public class BintrayPlugin implements Plugin<Project> {
   @Override
