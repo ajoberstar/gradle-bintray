@@ -4,6 +4,31 @@
 [![Travis](https://img.shields.io/travis/ajoberstar/gradle-bintray.svg?style=flat-square)](https://travis-ci.org/ajoberstar/gradle-bintray)
 [![GitHub license](https://img.shields.io/github/license/ajoberstar/gradle-bintray.svg?style=flat-square)](https://github.com/ajoberstar/gradle-bintray/blob/master/LICENSE)
 
+## Archived
+
+**This plugin has been ARCHIVED and will receive no further updates.**
+
+As noted below in the _Why do you care?_ section, it's not very hard to publish to Bintray using the normal `maven-publish` plugin. Given that Gradle is deprecating the "model space", the tiny advantage this plugin had over that is gone.
+
+I suggest directly configuring the Bintray repository in your build.
+
+```groovy
+// requires maven-publish plugin
+
+publishing {
+  repositories {
+    maven {
+      name = 'bintray'
+      url = 'https://api.bintray.com/maven/<owner>/<repo>/<pkg>/;publish=1'
+      credentials {
+        username = System.env['BINTRAY_USER']
+        password = System.env['BINTRAY_KEY']
+      }
+    }
+  }
+}
+```
+
 ## Why do you care?
 
 The official [gradle-bintray-plugin](https://github.com/bintray/gradle-bintray-plugin) uses it's own custom tasks to publish rather than the Gradle `maven-publish` tasks. It also pushes a lot of logic into an `afterEvaluate` which can cause ordering problems with other plugins. Bintray supports direct maven publishing, so we can do this with a lot less hassle.
